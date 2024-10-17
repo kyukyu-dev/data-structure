@@ -114,3 +114,18 @@ void SLL_InsertBefore(Node** Head, Node* Current, Node* NewHead)
     NewHead->NextNode = Current;
   }
 }
+
+void SLL_DestroyAllNodes(Node** Head)
+{
+    Node* CurrentHead = *Head;
+    Node* NextHead = NULL;
+
+    while (CurrentHead != NULL) 
+    {
+        NextHead = CurrentHead->NextNode;
+        free(CurrentHead);
+        CurrentHead = NextHead;
+    }
+
+    *Head = NULL;
+}
